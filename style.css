@@ -1,0 +1,206 @@
+/* --- SAVEPOINT 4 --- */
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #e0e0e0;
+  background-image: radial-gradient(rgba(85, 85, 85, 0.15) 2px, transparent 2px);
+  background-size: 60px 60px;
+  font-family: sans-serif;
+}
+
+#video-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  width: 234px;
+  transform: translateX(-50%) scaleX(-1);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid white;
+  z-index: 100;
+}
+
+#video-container video,
+#video-container canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#canvas-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+/* Three.js Container */
+#three-container {
+  width: 100%;
+  height: 100%;
+}
+
+.image-item {
+  position: absolute;
+  width: 212.91px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  /* GPU Acceleration & Backface Culling */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+#hand-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 50, 50, 0.8);
+  border: 2px solid white;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+#control-bounds {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px dashed rgba(0, 255, 255, 0.6);
+  background: rgba(0, 255, 255, 0.05);
+  pointer-events: none;
+  z-index: 9000;
+  display: none;
+  box-sizing: border-box;
+}
+
+/* Bento Grid Styles */
+#bento-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 280px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  z-index: 10000;
+  font-family: sans-serif;
+}
+
+.bento-item {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+.grid-2-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+#bento-container button {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background: #f0f0f0;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  transition: all 0.2s;
+  color: #333;
+}
+
+#bento-container button:hover {
+  background: #e0e0e0;
+  transform: translateY(-1px);
+}
+
+#bento-container select {
+  width: 100%;
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 11px;
+}
+
+#bento-container input[type=range] {
+  width: 100%;
+  margin-top: 5px;
+}
+
+#gesture-status {
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 8px;
+  pointer-events: none;
+}
+
+.wireframe-ring {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+body.night-mode {
+  background-color: #111;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 2px, transparent 2px);
+}
+
+body.night-mode .image-item {
+  box-shadow: 0 0 20px rgba(100, 200, 255, 0.6);
+}
+
+
+
+#presentation-controls {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  /* Hidden by default */
+  gap: 10px;
+  z-index: 10001;
+}
+
+#presentation-controls button {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  font-family: sans-serif;
+  transition: background 0.2s;
+}
+
+#presentation-controls button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+body.presentation-mode .lil-gui.root {
+  display: none !important;
+}
